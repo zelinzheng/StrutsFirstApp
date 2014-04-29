@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="LoginAction" class="com.actions.FirstAction" >
+			<result name="success">userhomepage.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	
+		<action name="SignupAction" class="com.actions.SignupAction">
+			<result name="success">/userhomepage.jsp</result>
+			<result name="input">/signup.jsp</result>
+		</action>
+		
+		<action name="TransferAction" class="com.actions.TransferAction">
+			<result name="success">/transfer.jsp</result>
+			<result name="test">/userhomepage.jsp</result>
+		</action>
+		
+		<action name="TransferDetail" class="com.actions.TransferSelectionAction">
+			<result name="success">/transfer2.jsp</result>
+			<result name="input">/userhomepage.jsp</result>
+		</action>
+		
+		<action name="TransferMoney" class="com.actions.TransferMoneyAction">
+			<result name="success">/transfersuccess.jsp</result>
+			<result name="input">/transfer2.jsp</result>
+			<result name="false">/transfer2.jsp</result>
+		</action>
+		
+		<action name="ViewSummary" class="com.actions.ViewSummaryAction">
+			<result name="success">/viewSummary.jsp</result>
+			<result name="input">/transfer.jsp</result>
+			<result name="false">/transfer.jsp</result>
+		</action>
+		
+		<action name="SubmitAction" class="com.actions.SubmitAction">
+		    <!-- <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/> -->
+            <interceptor-ref name="fileUpload">
+       		<param name="allowedTypes">text/plain</param>
+       		<param name="maximumSize">10240</param>
+  	    	</interceptor-ref> 
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            
+
+            <!-- <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref> -->
+            
+            
+            <!-- <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref> -->
+            <!-- recognize different type -->
+            
+            
+			<result name="success">/fileUploadDemo.jsp</result>
+			<result name="input">/dojoDemo.jsp</result>
+
+		</action>
+		
+	</package>
+</struts>

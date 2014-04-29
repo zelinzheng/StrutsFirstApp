@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- data types conversion will be done automatically, no need to worry -->
+	<class name="com.beans.Transactions" table="transactions">
+		<id name="transactionId" >
+			<!-- starts from 1, next: max+1 -->
+			<generator class="identity" />
+		</id>
+		<property name="un" column="un" length="20"/>
+		<property name="targetun" column="targetun" />
+		<property name="amount"  />
+		<property name="trandate" />
+		
+	</class>
+</hibernate-mapping>
